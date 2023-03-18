@@ -29,14 +29,14 @@ dev-exec:
 # Initializes a go project. Executed only when starting this project from scratch. Can be removed.
 .PHONY: dev-init
 dev-init:
-	${MAKE} dev-exec ${IMAGE_NAME} COMMAND="go mod init ${PROJECT_NAME}"
+	${MAKE} dev-exec COMMAND="go mod init ${PROJECT_NAME}"
 
 # Pulls go module packages and updates go.sum file
 .PHONY: dev-tidy
 dev-tidy:
-	${MAKE} dev-exec ${IMAGE_NAME} COMMAND="go mod tidy"
+	${MAKE} dev-exec COMMAND="go mod tidy"
 
 .PHONY: dev-build
 dev-build: ${ARTIFACTS_DIR}
-	${MAKE} dev-exec ${IMAGE_NAME} COMMAND="go build -o ${ARTIFACTS_DIR}/"
+	${MAKE} dev-exec COMMAND="go build -o ${ARTIFACTS_DIR}/"
 
